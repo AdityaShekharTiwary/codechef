@@ -18,5 +18,6 @@ int main()
             cout<<g<<" "<<n-g<<endl;
         }
     }
+    
     return 0;
 }
