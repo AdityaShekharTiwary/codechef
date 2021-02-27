@@ -34,24 +34,28 @@ void fast()
 
 void solve()
 {
-		string s;int a[26];
-	    cin>>s;
-	    for(int j=0;j<26;j++)
-	    a[j]=0;
-	    for(int j=0;j<s.length();j++)
-	    a[int(s[j]-'a')]++;
-	    int cnt=0,rem=0;
-	    for(int j=0;j<26;j++)
-	    {
-	        cnt=cnt+a[j]/2;
-	        if(a[j]>0 && a[j]%2==1)
-	        rem++;
-	    }
-	    if(rem<=cnt )
-	    cout<<"YES\n";
-	    else
-	    cout<<"NO\n";
-	    i++;
+	    string s;
+        cin >> s;
+        
+        int len = s.length();
+        int freq[26] = {0};
+        int p;
+        
+        for (int i = 0; i < len; i++) {
+            p = s[i] - 'a';
+            freq[p]++;
+        }
+        
+        int count = 0;
+        
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] % 2) count++;
+        }
+        
+        int even = (len - count) / 2;
+        
+        if (even >= count) cout << "YES" << endl;
+        else cout << "NO" << endl;
 }
 	
 
