@@ -33,19 +33,7 @@ void fast()
 
 void solve()
 {
-	string s; cin>>s;
-	int n=s.size();
-	int cnt=0;
-	bool check=false;
-	f(i,0,n){
-		if(s[i]=='1' && check==false) {
-			cnt++;
-			check=true;
-		}
-		else if(s[i]=='0') check=false;
-	}
-
-	cout<<cnt<<endl;
+	
 }
 
 
@@ -56,7 +44,19 @@ int main()
 
 	test
 	{
-		solve();
+		string s; cin>>s;
+		int n=s.size();
+		int cnt=0;
+		bool check=false;
+		f(i,0,n){
+			if(s[i]=='1' && check==false) {
+				cnt++;
+				check=true;
+			}
+			else if(s[i]=='0') check=false;
+		}
+
+		cout<<cnt<<endl;
 	}
 
 	return 0;
