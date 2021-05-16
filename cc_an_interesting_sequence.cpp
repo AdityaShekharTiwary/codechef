@@ -44,16 +44,40 @@ void fast()
 	cout.tie(NULL);
 }
 
+int n = 4e6 + 5;
+vi a(n), b(n);
+
+void help()
+{
+	for (int i = 0; i < n; i++) {
+		a[i] = i;
+	}
+	for (int i = 2; i < n; i++) {
+		if (a[i] == i) {
+			a[i] = i - 1;
+			for (int j = 2 * i; j < n; j += i) {
+				a[j] = (a[j] / i) * (i - 1);
+			}
+		}
+	}
+	for (int i = 1; i < n; i++) {
+		b[i] += i - 1;
+		for (int j = 2 * i; j < n; j += i) {
+			b[j] += i * ((1 + a[j / i]) / 2);
+		}
+	}
+}
+
 
 void solve()
 {
+	help();
 
-	int k; cin >> k;
-	ll res = 0;
-	for (ll i = 1; i <= 2 * k; i++) {
-		res += __gcd(k + i * i, (k + (i + 1) * (i + 1)));
+	int k; scanf("%d", &k);
+	while (k--) {
+		int x; scanf("%d", &x);
+		printf("%d\n", b[4 * x + 1]);
 	}
-	cout << res % 1000000007 << endl;
 
 }
 
@@ -64,7 +88,7 @@ int main()
 {
 	fast();
 
-	test
+	//test
 	{
 		solve();
 	}
