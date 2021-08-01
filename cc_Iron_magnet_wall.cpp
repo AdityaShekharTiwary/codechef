@@ -19,6 +19,7 @@ int main()
                 {
                     if(i<j)
                     {
+                        
                         for(int k=i;k<j;k++)
                         {
                             if(s[k]==':')
